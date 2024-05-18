@@ -18,11 +18,11 @@ connect.execute(' CREATE TABLE IF NOT EXISTS tb_user (\
                     user_address VARCHAR(200) NOT NULL )')
 
 #criar tabela emprestimo
-connect.execute(' CREATE TABLE IF NOT EXISTS tb_loans (\
-                    loas_id INTEGER PRIMARY KEY,\
-                    loas_book_id INTEGER NOT NULL,\
-                    loas_user_id INTEGER NOT NULL,\
-                    loas_date_loan NOT NULL,\
-                    loas_date_return NOT NULL,\
-                    FOREIGN KEY(loas_book_id) REFERENCES  tb_book(book_id),\
-                    FOREIGN KEY(loas_user_id) REFERENCES tb_user(user_id) ) ')
+connect.execute(' CREATE TABLE IF NOT EXISTS tb_loan (\
+                    loan_id INTEGER PRIMARY KEY,\
+                    loan_book_id INTEGER NOT NULL,\
+                    loan_user_id INTEGER NOT NULL,\
+                    loan_date_loan NOT NULL,\
+                    loan_date_return NOT NULL,\
+                    FOREIGN KEY(loan_book_id) REFERENCES  tb_book(book_id),\
+                    FOREIGN KEY(loan_user_id) REFERENCES tb_user(user_id) ) ')
