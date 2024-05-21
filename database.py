@@ -22,7 +22,7 @@ connect.execute(' CREATE TABLE IF NOT EXISTS tb_loan (\
                     loan_id INTEGER PRIMARY KEY,\
                     loan_book_id INTEGER NOT NULL,\
                     loan_user_id INTEGER NOT NULL,\
-                    loan_date_loan NOT NULL,\
-                    loan_date_return NOT NULL,\
+                    loan_date_loan TEXT NOT NULL,\
+                    loan_date_return TEXT NOT NULL,\
                     FOREIGN KEY(loan_book_id) REFERENCES  tb_book(book_id),\
                     FOREIGN KEY(loan_user_id) REFERENCES tb_user(user_id) ) ')
