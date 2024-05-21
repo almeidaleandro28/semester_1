@@ -31,6 +31,7 @@ def insert_loan( book_id, user_id, date_loan, date_return ):
   connect.commit()
   connect.close()
   
+# relátorios
 def show_books( ):
   connect = connect_database()
   books = connect.execute('SELECT * FROM tb_book').fetchall()
@@ -46,10 +47,24 @@ def show_books( ):
     print("NAO TEM NENHUM LIVRO CADASTRADO!")
 
 
+def show_users():
+  connect = connect_database()
+  users = connect.execute('SELECT * FROM tb_user').fetchall()
+  connect.close()
+
+  print("LISTA DE USUÁRIOS CADATRADOS")
+  if users:
+    for user in users:
+      print(f"NAME: { user[1]} ID: { user[0] }")
+  else:
+    print("NENHUM USUÁRIO CADASTRADO!")
+
 
 # insert_book("titulo 1","autor 1",1970, 40)
 # insert_book("titulo 2","autor 2",1971, 30)
 # insert_book("titulo 3","autor 3",1972, 20)
 # insert_user("leandro","61 98174 9346","cnf 01")
 # insert_user("tais","61 88174 9346","cnf 03")
+insert_loan(3, )
 # show_books()
+show_users()
