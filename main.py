@@ -59,12 +59,31 @@ def show_users():
   else:
     print("NENHUM USUÁRIO CADASTRADO!")
 
+def show_books_loan():
+  connect = connect_database()
+  query = connect.execute('SELECT tb_book.book_title,\
+                              tb_user.user_name,\
+                              tb_loan.loan_date_loan, tb_loan.loan_date_return\
+                          FROM  \
+                            tb_book\
+                            INNER JOIN tb_loan ON tb_loan.loan_book_id = tb_book.book_id\
+                            INNER JOIN tb_user ON tb_user.user_id = tb_loan.loan_user_id\
+                            WHERE tb_loan.loan_date_return IS NULL\
+                          ').fetchall()
+  connect.close()
+  return query
+
+# insert_user("leandro","61 98174 9346","cnf 01")
+# insert_user("tais","61 88174 9346","cnf 03")
 
 # insert_book("titulo 1","autor 1",1970, 40)
 # insert_book("titulo 2","autor 2",1971, 30)
 # insert_book("titulo 3","autor 3",1972, 20)
-# insert_user("leandro","61 98174 9346","cnf 01")
-# insert_user("tais","61 88174 9346","cnf 03")
-insert_loan(3, )
+# insert_book("titulo 4","autor 4",1999, 15)
+
+# insert_loan(3, 1, "2024:05:01", "2024:05:30")
+# insert_loan(3, 2, "2024:05:03",  None)
+# insert_loan(1, 1, "2024-05-03", None)
+
 # show_books()
-show_users()
+print( show_books_loan() ) 
