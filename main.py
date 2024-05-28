@@ -56,7 +56,6 @@ def show_books( ):
   else:
     print("NAO TEM NENHUM LIVRO CADASTRADO!")
 
-
 def show_users():
   connect = connect_database()
   users = connect.execute('SELECT * FROM tb_user').fetchall()
@@ -99,6 +98,6 @@ def show_books_loan():
 
 # show_books()
 # show_users()
-# print( show_books_loan() ) 
+print( show_books_loan() ) 
 
-update_return_date_loan( 2, '2024-05-10')
+# update_return_date_loan( 2, '2024-05-10')
