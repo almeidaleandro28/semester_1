@@ -30,7 +30,17 @@ def insert_loan( book_id, user_id, date_loan, date_return ):
                 ,( book_id, user_id, date_loan, date_return ) )
   connect.commit()
   connect.close()
-  
+
+def update_return_date_loan( loan_id, loan_date_return ):
+  connect = connect_database()
+  connect.execute('UPDATE tb_loan \
+                    SET loan_date_return = ? \
+                    WHERE loan_id = ? '\
+                    ,( loan_date_return, loan_id ) )
+  connect.commit()
+  connect.close()
+
+
 # relátorios
 def show_books( ):
   connect = connect_database()
@@ -61,7 +71,9 @@ def show_users():
 
 def show_books_loan():
   connect = connect_database()
-  query = connect.execute('SELECT tb_book.book_title,\
+  query = connect.execute('SELECT  \
+                              tb_loan.loan_id, \
+                              tb_book.book_title,\
                               tb_user.user_name,\
                               tb_loan.loan_date_loan, tb_loan.loan_date_return\
                           FROM  \
@@ -86,4 +98,7 @@ def show_books_loan():
 # insert_loan(1, 1, "2024-05-03", None)
 
 # show_books()
-print( show_books_loan() ) 
+# show_users()
+# print( show_books_loan() ) 
+
+update_return_date_loan( 2, '2024-05-10')
