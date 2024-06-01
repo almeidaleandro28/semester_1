@@ -40,4 +40,8 @@ logo_header.place( x=5, y=0 )
 header_title = Label( frame_header, text="title", compound=LEFT, padx=5, anchor=NW, font=('Verdana 15 bold'), bg=color_3, fg=color_4 )
 header_title.place( x=50, y=7 )
 
+header_bottom_line = Label( frame_header, width=750, height=1, padx=5, anchor=NW, font=('Verdana 1'), bg=color_4)
+header_bottom_line.place( x=0, y=47 )
+
+
 root.mainloop()
