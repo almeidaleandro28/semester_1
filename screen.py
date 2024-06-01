@@ -34,10 +34,10 @@ logo ='icons8-book-40.png'
 # logo_header = logo_header.resize( ( 40, 40 ) )
 logo_img = ImageTk.PhotoImage( Image.open( logo ) )
 
-logo_header = Label( frame_header, image=logo_img, width=1000, padx=5, anchor=NW, fg=color_1)
+logo_header = Label( frame_header, image=logo_img, width=1000, padx=5, anchor=NW, bg=color_3, fg=color_4)
 logo_header.place( x=5, y=0 )
 
-header_title = Label( frame_header, text="title", compound=LEFT, padx=5, anchor=NW, font=('Verdana 15 bold'), fg=color_4 )
+header_title = Label( frame_header, text="title", compound=LEFT, padx=5, anchor=NW, font=('Verdana 15 bold'), bg=color_3, fg=color_4 )
 header_title.place( x=50, y=7 )
 
 root.mainloop()
